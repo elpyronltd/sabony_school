@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Bright Future School</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS for Font and General Styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            /* Light background */
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header Styling (Consistent with main page) */
+        .header-solid {
+            background-color: #1a202c;
+            /* Dark background */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Button Styling (Consistent with main page) */
+        .btn-primary {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            background-image: linear-gradient(to right, #6366f1, #8b5cf6);
+            /* Indigo to Violet */
+        }
+
+        .btn-primary:hover {
+            background-color: #4f46e5;
+            /* Darker indigo */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Padding */
+        section {
+            padding: 4rem 0;
+        }
+
+        /* Card Flip Animation (from main page) */
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 250px;
+            /* Fixed height for consistent cards */
+            perspective: 1000px;
+            /* 3D effect */
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 1rem;
+            /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            /* Safari */
+            backface-visibility: hidden;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            box-sizing: border-box;
+        }
+
+        .flip-card-front {
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .flip-card-back {
+            background-color: #6366f1;
+            /* Indigo */
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        /* Policy Section Styling */
+        .policy-section {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .policy-section h3 {
+            font-size: 2.25rem;
+            /* text-3xl */
+            font-weight: 700;
+            /* font-bold */
+            margin-bottom: 1.5rem;
+            /* mb-6 */
+            color: #333;
+            /* text-gray-800 */
+        }
+
+        .policy-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: #4a5568;
+            /* text-gray-700 */
+        }
+
+        .policy-section ul {
+            list-style-type: disc;
+            margin-left: 1.25rem;
+            margin-bottom: 1rem;
+            color: #4a5568;
+        }
+
+        .policy-section ol {
+            list-style-type: decimal;
+            margin-left: 1.25rem;
+            margin-bottom: 1rem;
+            color: #4a5568;
+        }
+
+        .policy-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive adjustments for header */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                /* Hide desktop nav links */
+            }
+
+            .hamburger-menu {
+                display: block;
+                /* Show hamburger icon */
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+
+            .mobile-menu.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                /* Height of header */
+                left: 0;
+                width: 100%;
+                background-color: #1a202c;
+                /* Dark background for mobile menu */
+                z-index: 10;
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .mobile-menu a {
+                color: white;
+                padding: 0.75rem 1.5rem;
+                text-align: center;
+                transition: background-color 0.2s;
+            }
+
+            .mobile-menu a:hover {
+                background-color: #2d3748;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Header Section (Consistent with main page) -->
+    <header class="header-solid text-white p-4 fixed w-full z-20">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html"
+                class="text-2xl font-bold text-indigo-400 rounded-lg p-2 hover:text-indigo-300 transition duration-300">Bright
+                Future School</a>
+            <div class="hidden md:flex space-x-6 nav-links">
+                <a href="index.html#home"
+                    class="hover:text-indigo-400 transition duration-300 px-3 py-2 rounded-md">Home</a>
+                <div class="relative group">
+                    <button
+                        class="text-white hover:text-indigo-400 transition duration-300 px-3 py-2 rounded-md focus:outline-none flex items-center">
+                        About <svg
+                            class="w-4 h-4 inline-block ml-1 -mt-0.5 transform group-hover:rotate-180 transition-transform duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class="absolute hidden group-hover:block bg-gray-800 text-white rounded-md shadow-lg py-2 pt-2 w-48 z-30">
+                        <a href="about.html#about-us-main"
+                            class="block px-4 py-2 hover:bg-gray-700 transition duration-300">About Us</a>
+                        <a href="index.html#programs"
+                            class="block px-4 py-2 hover:bg-gray-700 transition duration-300">Programs</a>
+                        <a href="index.html#testimonials"
+                            class="block px-4 py-2 hover:bg-gray-700 transition duration-300">Testimonials</a>
+                        <a href="index.html#gallery"
+                            class="block px-4 py-2 hover:bg-gray-700 transition duration-300">Gallery</a>
+                        <a href="index.html#news"
+                            class="block px-4 py-2 hover:bg-gray-700 transition duration-300">News</a>
+                    </div>
+                </div>
+                <a href="admissions.html"
+                    class="hover:text-indigo-400 transition duration-300 px-3 py-2 rounded-md">Admissions</a>
+                <a href="index.html#contact"
+                    class="hover:text-indigo-400 transition duration-300 px-3 py-2 rounded-md">Contact</a>
+            </div>
+            <!-- Hamburger Menu Icon for Mobile -->
+            <button id="hamburger" class="md:hidden text-white focus:outline-none hamburger-menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden">
+            <a href="index.html#home">Home</a>
+            <a href="about.html#about-us-main">About Us</a>
+            <a href="index.html#programs">Programs</a>
+            <a href="index.html#testimonials">Testimonials</a>
+            <a href="index.html#gallery">Gallery</a>
+            <a href="index.html#news">News</a>
+            <a href="admissions.html">Admissions</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </header>
+
+    <!-- About Us Hero Section -->
+    <section class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-center py-24 pt-32">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+                Learn More About Us
+            </h1>
+            <p class="text-xl md:text-2xl mb-8">
+                Our commitment to excellence in education and community.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Our School Section (Moved from index.html) -->
+    <section id="about-us-main" class="bg-white py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">About Our School</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Mission Card -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-blue-50">
+                            <h3 class="text-2xl font-semibold mb-4 text-gray-700">Our Mission</h3>
+                            <p class="text-gray-600">
+                                To inspire a lifelong love of learning and empower students to achieve their full
+                                potential.
+                            </p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-2xl font-semibold mb-4">Dedicated to Excellence</h3>
+                            <p>
+                                We are committed to providing a stimulating and supportive environment for every child.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vision Card -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-green-50">
+                            <h3 class="text-2xl font-semibold mb-4 text-gray-700">Our Vision</h3>
+                            <p class="text-gray-600">
+                                To cultivate responsible, compassionate, and innovative global citizens.
+                            </p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-2xl font-semibold mb-4">Future Leaders</h3>
+                            <p>
+                                Shaping the leaders of tomorrow with strong values and critical thinking skills.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Values Card -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-yellow-50">
+                            <h3 class="text-2xl font-semibold mb-4 text-gray-700">Our Values</h3>
+                            <p class="text-gray-600">
+                                Integrity, Respect, Collaboration, and a Passion for Learning.
+                            </p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-2xl font-semibold mb-4">Core Principles</h3>
+                            <p>
+                                These values guide our curriculum, teaching methods, and community interactions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Section -->
+    <section id="privacy-policy" class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Privacy Policy</h2>
+            <div class="max-w-4xl mx-auto policy-section">
+                <h3>1. Introduction</h3>
+                <p>
+                    Bright Future School ("we," "our," or "us") is committed to protecting the privacy of our students,
+                    parents, staff, and website visitors. This Privacy Policy outlines how we collect, use, disclose,
+                    and safeguard your information.
+                </p>
+
+                <h3>2. Information We Collect</h3>
+                <p>We may collect personal information that you voluntarily provide to us when you:</p>
+                <ul>
+                    <li>Apply for admission or enrollment.</li>
+                    <li>Register for events or programs.</li>
+                    <li>Contact us through our website, email, or phone.</li>
+                    <li>Visit our website (through cookies and analytics).</li>
+                </ul>
+                <p>This information may include, but is not limited to: names, contact details (email, phone, address),
+                    date of birth, academic records, health information, and payment details.</p>
+
+                <h3>3. How We Use Your Information</h3>
+                <p>We use the information we collect for various purposes, including:</p>
+                <ul>
+                    <li>Processing admissions and enrollments.</li>
+                    <li>Providing educational services and support.</li>
+                    <li>Communicating with students, parents, and staff.</li>
+                    <li>Managing school operations and administration.</li>
+                    <li>Improving our website and services.</li>
+                    <li>Complying with legal and regulatory requirements.</li>
+                </ul>
+
+                <h3>4. Disclosure of Your Information</h3>
+                <p>We do not sell, trade, or otherwise transfer your personally identifiable information to outside
+                    parties without your consent, except:</p>
+                <ul>
+                    <li>To trusted third parties who assist us in operating our website, conducting our business, or
+                        serving our users, so long as those parties agree to keep this information confidential.</li>
+                    <li>When we believe release is appropriate to comply with the law, enforce our site policies, or
+                        protect ours or others' rights, property, or safety.</li>
+                </ul>
+
+                <h3>5. Data Security</h3>
+                <p>
+                    We implement a variety of security measures to maintain the safety of your personal information when
+                    you enter, submit, or access your personal information.
+                </p>
+
+                <h3>6. Your Consent</h3>
+                <p>By using our site, you consent to our website's privacy policy.</p>
+
+                <h3>7. Changes to this Privacy Policy</h3>
+                <p>
+                    We reserve the right to update or change our Privacy Policy at any time. Any changes will be posted
+                    on this page.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cookies Policy Section -->
+    <section id="cookies-policy" class="bg-blue-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Cookies Policy</h2>
+            <div class="max-w-4xl mx-auto policy-section">
+                <h3>1. What are Cookies?</h3>
+                <p>
+                    Cookies are small text files that are placed on your computer or mobile device when you visit a
+                    website. They are widely used to make websites work more efficiently, as well as to provide
+                    information to the owners of the site.
+                </p>
+
+                <h3>2. How We Use Cookies</h3>
+                <p>We use cookies for the following purposes:</p>
+                <ul>
+                    <li><strong>Essential Cookies:</strong> These cookies are strictly necessary for the operation of
+                        our website. They enable you to navigate the site and use its features.</li>
+                    <li><strong>Analytical/Performance Cookies:</strong> These cookies allow us to recognize and count
+                        the number of visitors and to see how visitors move around our website when they are using it.
+                        This helps us to improve the way our website works.</li>
+                    <li><strong>Functionality Cookies:</strong> These are used to recognize you when you return to our
+                        website. This enables us to personalize our content for you and remember your preferences.</li>
+                </ul>
+
+                <h3>3. Third-Party Cookies</h3>
+                <p>
+                    In addition to our own cookies, we may also use various third-parties cookies to report usage
+                    statistics of the Service, deliver advertisements on and through the Service, and so on.
+                </p>
+
+                <h3>4. Your Choices Regarding Cookies</h3>
+                <p>
+                    You have the option to accept or refuse cookies. Most web browsers automatically accept cookies, but
+                    you can usually modify your browser setting to decline cookies if you prefer. However, this may
+                    prevent you from taking full advantage of the website.
+                </p>
+
+                <h3>5. More Information</h3>
+                <p>
+                    If you have any questions about our use of cookies, please contact us.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms of Service Section -->
+    <section id="terms-of-service" class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Terms of Service</h2>
+            <div class="max-w-4xl mx-auto policy-section">
+                <h3>1. Acceptance of Terms</h3>
+                <p>
+                    By accessing or using the Bright Future School website, you agree to be bound by these Terms of
+                    Service. If you do not agree to all the terms and conditions of this agreement, then you may not
+                    access the website or use any services.
+                </p>
+
+                <h3>2. Use of Website</h3>
+                <p>
+                    This website is provided for informational purposes related to Bright Future School. You agree to
+                    use the website only for lawful purposes and in a way that does not infringe the rights of,
+                    restrict, or inhibit anyone else's use and enjoyment of the website.
+                </p>
+
+                <h3>3. Intellectual Property</h3>
+                <p>
+                    All content on this website, including text, graphics, logos, images, and software, is the property
+                    of Bright Future School or its content suppliers and is protected by intellectual property laws.
+                </p>
+
+                <h3>4. User Conduct</h3>
+                <p>You agree not to:</p>
+                <ul>
+                    <li>Use the website in any way that causes, or may cause, damage to the website or impairment of the
+                        availability or accessibility of the website.</li>
+                    <li>Use the website in any way which is unlawful, illegal, fraudulent, or harmful.</li>
+                    <li>Engage in any data collection activities without express written consent from Bright Future
+                        School.</li>
+                </ul>
+
+                <h3>5. Links to Third-Party Websites</h3>
+                <p>
+                    Our website may contain links to third-party websites that are not owned or controlled by Bright
+                    Future School. We have no control over, and assume no responsibility for, the content, privacy
+                    policies, or practices of any third-party websites.
+                </p>
+
+                <h3>6. Disclaimer of Warranties</h3>
+                <p>
+                    The website is provided "as is" without any representations or warranties, express or implied.
+                    Bright Future School makes no representations or warranties in relation to this website or the
+                    information and materials provided on this website.
+                </p>
+
+                <h3>7. Limitation of Liability</h3>
+                <p>
+                    Bright Future School will not be liable to you (whether under the law of contact, the law of torts,
+                    or otherwise) in relation to the contents of, or use of, or otherwise in connection with, this
+                    website.
+                </p>
+
+                <h3>8. Governing Law</h3>
+                <p>
+                    These Terms of Service shall be governed by and construed in accordance with the laws of Ghana.
+                </p>
+
+                <h3>9. Contact Information</h3>
+                <p>
+                    If you have any questions about these Terms of Service, please contact us.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section (Consistent with main page) -->
+    <footer class="bg-gray-900 text-white py-8 text-center">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 Bright Future School. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#privacy-policy" class="hover:text-indigo-400 transition duration-300">Privacy Policy</a>
+                <a href="#terms-of-service" class="hover:text-indigo-400 transition duration-300">Terms of Service</a>
+                <a href="#cookies-policy" class="hover:text-indigo-400 transition duration-300">Cookies Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Mobile Navigation Toggle (Consistent with main page)
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

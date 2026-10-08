@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Bright Future School</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS for Font and General Styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            /* Light background */
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header Styling (Consistent with main page) */
+        .header-solid {
+            background-color: #1a202c;
+            /* Dark background */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Button Styling (Consistent with main page) */
+        .btn-primary {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            background-image: linear-gradient(to right, #6366f1, #8b5cf6);
+            /* Indigo to Violet */
+        }
+
+        .btn-primary:hover {
+            background-color: #4f46e5;
+            /* Darker indigo */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Padding */
+        section {
+            padding: 4rem 0;
+        }
+
+        /* Form Styling */
+        .contact-form-card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+        }
+
+        /* Responsive adjustments for header */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                /* Hide desktop nav links */
+            }
+
+            .hamburger-menu {
+                display: block;
+                /* Show hamburger icon */
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+
+            .mobile-menu.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                /* Height of header */
+                left: 0;
+                width: 100%;
+                background-color: #1a202c;
+                /* Dark background for mobile menu */
+                z-index: 10;
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .mobile-menu a {
+                color: white;
+                padding: 0.75rem 1.5rem;
+                text-align: center;
+                transition: background-color 0.2s;
+            }
+
+            .mobile-menu a:hover {
+                background-color: #2d3748;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Header Section (Consistent with main page) -->
+    <header class="header-solid text-white p-4 fixed w-full z-20">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html"
+                class="text-2xl font-bold text-indigo-400 rounded-lg p-2 hover:text-indigo-300 transition duration-300">Bright
+                Future School</a>
+            <div class="hidden md:flex space-x-6 nav-links">
+                <a href="index.html#home"
+                    class="hover:text-indigo-400 transition duration-300 px-3 py-2 rounded-md">Home</a>
+                <div class="relative group">
+                    <button
+                        class="text-white hover:text-indigo-400 transition duration-300 px-3 py-2 rounded-md focus:outline-none flex items-center">
+                        About <svg
+                            class="w-4 h-4 inline-block ml-1 -mt-0.5 transform group-hover:rotate-180 transition-transform duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class="absolute hidden group-hover:block bg-gray-800 text-white rounded-md shadow-lg py-2 pt-2 w-48 z-30">
+                        <a href="about.html#about-us-main"
+                            class="block px-4 py-2 hover:bg-gray-700 transition duration-300">About Us</a>
+                        <a href="index.html#programs"
+                            class="block px-4 py-2 hover:bg-gray-700 transition duration-300">Programs</a>
+                        <a href="index.html#testimonials"
+                            class="block px-4 py-2 hover:bg-gray-700 transition duration-300">Testimonials</a>
+                        <a href="index.html#gallery"
+                            class="block px-4 py-2 hover:bg-gray-700 transition duration-300">Gallery</a>
+                        <a href="index.html#news"
+                            class="block px-4 py-2 hover:bg-gray-700 transition duration-300">News</a>
+                    </div>
+                </div>
+                <a href="admissions.html"
+                    class="hover:text-indigo-400 transition duration-300 px-3 py-2 rounded-md">Admissions</a>
+                <a href="contact.html"
+                    class="hover:text-indigo-400 transition duration-300 px-3 py-2 rounded-md">Contact</a>
+            </div>
+            <!-- Hamburger Menu Icon for Mobile -->
+            <button id="hamburger" class="md:hidden text-white focus:outline-none hamburger-menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden">
+            <a href="index.html#home">Home</a>
+            <a href="about.html#about-us-main">About Us</a>
+            <a href="index.html#programs">Programs</a>
+            <a href="index.html#testimonials">Testimonials</a>
+            <a href="index.html#gallery">Gallery</a>
+            <a href="index.html#news">News</a>
+            <a href="admissions.html">Admissions</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <!-- Contact Us Hero Section -->
+    <section class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-center py-24 pt-32">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+                Get in Touch
+            </h1>
+            <p class="text-xl md:text-2xl mb-8">
+                We're here to answer all your questions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact-form-section" class="bg-white py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Send Us a Message</h2>
+            <div class="max-w-xl mx-auto contact-form-card">
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                        <input type="text" id="name" name="name"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                            required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+                        <input type="email" id="email" name="email"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                            required>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+                        <input type="text" id="subject" name="subject"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Your Message</label>
+                        <textarea id="message" name="message" rows="6"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                            required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit"
+                            class="btn-primary px-6 py-3 text-lg font-semibold rounded-full shadow-lg">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Details Section -->
+    <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12 text-gray-800">Our Contact Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <svg class="w-12 h-12 text-indigo-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0L6.343 16.657a8 8 0 1111.314 0z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Address</h3>
+                    <p class="text-gray-700">123 School Lane, Education City, EF 45678</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <svg class="w-12 h-12 text-indigo-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                        </path>
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Phone</h3>
+                    <p class="text-gray-700">+1 (555) 123-4567</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <svg class="w-12 h-12 text-indigo-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 4v7a2 2 0 002 2h14a2 2 0 002-2v-7m-18 0h18">
+                        </path>
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Email</h3>
+                    <p class="text-gray-700">info@brightfutureschool.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section (Consistent with main page) -->
+    <footer class="bg-gray-900 text-white py-8 text-center">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 Bright Future School. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="about.html#privacy-policy" class="hover:text-indigo-400 transition duration-300">Privacy
+                    Policy</a>
+                <a href="about.html#terms-of-service" class="hover:text-indigo-400 transition duration-300">Terms of
+                    Service</a>
+                <a href="about.html#cookies-policy" class="hover:text-indigo-400 transition duration-300">Cookies
+                    Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Mobile Navigation Toggle (Consistent with main page)
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

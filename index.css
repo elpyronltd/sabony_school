@@ -1,0 +1,521 @@
+:root {
+    --primary-yellow: #ffb400;
+    --primary-green: #0c5c02;
+    --font-color: #2a2a2a;
+    --background-light: #edeff0;
+    --background-dark: #161616;
+    --white-main: #fff;
+    --link-blue: #0051ff;
+    --link-black: #000;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--background-light);
+    color: var(--font-color);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+p {
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* ============================================
+======= COMMONS ============================= */
+.heading {
+    font-weight: 900;
+    color: var(--link-black);
+    /* text-decoration: underline; */
+    font-size: 45px;
+    text-align: center;
+}
+
+.italic-text {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.in-link{
+    color: var(--link-black);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+
+
+/* ============================================================
+============= HEADER AND HERO ============================*/
+#hero-header {
+
+    min-height: 90vh;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+    background: linear-gradient(rgba(3, 2, 64, 0.2), rgba(3, 2, 64, 0.2)), url(./img/hero_bg3.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    /* background: url(./img/blur_school_bg1.jpg); */
+}
+
+
+
+
+
+/*===============================================
+== HEADERS =============================*/
+#header {
+    padding: 20px 5%;
+    /* background-color: var(--primary-yellow); */
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); */
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-width: 100px;
+    gap: 20px;
+}
+
+.header-right a {
+    padding: 12px 20px;
+    border-radius: 50px;
+    transition: 0.3s ease-in-out;
+}
+
+.header-right a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 5px #2a2a2a;
+}
+
+.contact {
+    background: var(--primary-green);
+    font-weight: bold;
+    color: var(--white-main);
+}
+
+.admission {
+    background: var(--primary-yellow);
+    font-weight: 900;
+    color: var(--link-black);
+}
+
+.logo-div {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+
+.logo {
+    height: 50px;
+}
+
+.school-name {
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.nav-items {
+    margin: 10px 0;
+}
+
+
+.nav-menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 15px;
+    list-style: none;
+}
+
+.nav-link {
+    font-size: 25px;
+    color: var(--link-black);
+    position: relative;
+    font-weight: 800;
+
+}
+
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    /* Start from the middle */
+    bottom: -8px;
+    /* Position just below the text */
+    width: 0;
+    height: 3px;
+    background-color: var(--link-black);
+    transition: width 0.4s ease, left 0.4s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+    /* Expand to both sides */
+}
+
+.active-link {
+    color: var(--primary-yellow);
+    text-shadow: 1px 1px 1px #000;
+}
+
+.nav-link:active::before,
+.nav-link:active::after {
+    transform: scaleX(1.1);
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #00bfff;
+}
+
+@media only screen and (max-width: 950px) {
+    .nav-menu {
+        position: fixed;
+        right: -100%;
+        top: 3.5rem;
+        flex-direction: column;
+
+        background-color: #00051e;
+        width: 50%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-link {
+        color: #00bfff;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu li {
+        padding: 10px 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+
+
+
+
+
+/* ====================================================================
+========== ABOUT SABONY PAGE ======================================== */
+#about-sabony {
+    padding: 20px 5%;
+    color: var(--font-color);
+    text-align: left;
+}
+
+.about-main {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.about-left {
+    min-width: 290px;
+    max-width: 400px;
+}
+
+.about-left img {
+    height: 350px;
+}
+
+.about-right {
+    max-width: 1000px;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================================================
+=========== TESTIMONIALS SECTION ============================================ */
+#testimonials {
+    padding: 20px 5%;
+
+}
+
+.testimonials-main {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 50px 0;
+
+}
+
+
+.flip-card {
+    background-color: transparent;
+    width: 25%;
+    height: 400px;
+    perspective: 1000px;
+    min-width: 290px;
+    max-width: 420px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 5px #2a2a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.flip-card-front1 {
+    background: url(./img/student_bg5.jpg);
+    background-position: center top;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 5px #2a2a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-card-front2 {
+    background: url(./img/student_bg6.jpg);
+    background-position: center top;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 5px #2a2a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-card-front3 {
+    background: url(./img/student_bg4.jpg);
+    background-position: center top;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 5px #2a2a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-card-front {
+    background: #fff;
+    color: #333;
+}
+
+.flip-card-back {
+    /* background: #4a90e2; */
+    color: var(--font-color);
+    transform: rotateY(180deg);
+}
+
+
+.testimonials-sub{
+    text-align: center;
+}
+
+
+
+
+
+
+/* ==========================================================================
+======= PARALLAX ======================================= */
+#parallax{
+    height: 80vh;
+    padding: 0;
+    background: url(./img/student_teacher_bg.png);
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================================
+============ FOOTER ================================================= */
+footer{
+    min-height: 200px;
+    padding: 50px 5%;
+    background: var(--primary-yellow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-items: center;
+}
+
+footer img{
+    width: 400px;
+}
+
+footer a{
+    font-size: 25px;
+    color: var(--link-black);
+    transition: 0.3s ease-in-out;
+    padding: 0 20px;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
+footer p{
+    font-size: 25px;
+}
+
+.footer-left{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+.footer-links{
+    display: flex;
+    /* gap: 15px; */
+    margin: 40px 0;
+    width: 100%;
+    justify-content: center;
+}
+
+.copyright{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: var(--primary-green);
+    color: var(--primary-yellow);
+    font-size: 20px;
+    padding: 5px 20px;
+    margin: 30px 0 0 0 ;
+}

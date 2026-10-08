@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabony School Complex - Full Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-yellow: #FFD700;
+            --secondary-black: #1A1A1A;
+            --accent-gray: #333333;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --text-color: #333333;
+            --translucent-black: rgba(26, 26, 26, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-gray);
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header (similar to main page) */
+        .header {
+            background-color: var(--secondary-black);
+            /* Solid black header for sub-pages */
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary-yellow);
+        }
+
+        .back-home-btn {
+            background-color: var(--primary-yellow);
+            color: var(--secondary-black);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-home-btn:hover {
+            background-color: #E6B800;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Section */
+        .gallery-page-content {
+            padding: 80px 0;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-top: 40px;
+            /* Space from header */
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--secondary-black);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-yellow);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .gallery-grid-full {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .gallery-item-full {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item-full:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item-full img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item-full:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item-full .caption {
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary-black);
+            text-align: center;
+        }
+
+        /* Footer (similar to main page) */
+        .footer {
+            background-color: var(--secondary-black);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer p {
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul li a {
+            color: var(--white);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary-yellow);
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-yellow);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .gallery-grid-full {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .gallery-item-full img {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .back-home-btn {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+
+            .gallery-item-full img {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Sabony <span>School</span></a>
+            <a href="index.html" class="back-home-btn">Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <section class="gallery-page-content">
+        <div class="container">
+            <h2 class="section-title">Our Full Gallery</h2>
+            <div class="gallery-grid-full">
+                <div class="gallery-item-full">
+                    <img src="https://placehold.co/600x400/FFD700/1A1A1A?text=School+Event+1" alt="School Event 1">
+                    <div class="caption">Annual Sports Day</div>
+                </div>
+                <div class="gallery-item-full">
+                    <img src="https://placehold.co/600x400/1A1A1A/FFD700?text=Classroom+Activity"
+                        alt="Classroom Activity">
+                    <div class="caption">Engaging Classroom Session</div>
+                </div>
+                <div class="gallery-item-full">
+                    <img src="https://placehold.co/600x400/FFD700/1A1A1A?text=Sports+Day+2" alt="Sports Day 2">
+                    <div class="caption">Team Spirit in Action</div>
+                </div>
+                <div class="gallery-item-full">
+                    <img src="https://placehold.co/600x400/1A1A1A/FFD700?text=Science+Fair+2" alt="Science Fair 2">
+                    <div class="caption">Young Scientists Showcase</div>
+                </div>
+                <div class="gallery-item-full">
+                    <img src="https://placehold.co/600x400/FFD700/1A1A1A?text=Art+Class+2" alt="Art Class 2">
+                    <div class="caption">Creative Expressions</div>
+                </div>
+                <div class="gallery-item-full">
+                    <img src="https://placehold.co/600x400/1A1A1A/FFD700?text=Graduation+2" alt="Graduation 2">
+                    <div class="caption">Graduation Ceremony</div>
+                </div>
+                <div class="gallery-item-full">
+                    <img src="https://placehold.co/600x400/FFD700/1A1A1A?text=Library+Session" alt="Library Session">
+                    <div class="caption">Quiet Reading Time</div>
+                </div>
+                <div class="gallery-item-full">
+                    <img src="https://placehold.co/600x400/1A1A1A/FFD700?text=Outdoor+Play" alt="Outdoor Play">
+                    <div class="caption">Fun Outdoor Activities</div>
+                </div>
+                <div class="gallery-item-full">
+                    <img src="https://placehold.co/600x400/FFD700/1A1A1A?text=Music+Class" alt="Music Class">
+                    <div class="caption">Harmony in Music Class</div>
+                </div>
+                <div class="gallery-item-full">
+                    <img src="https://placehold.co/600x400/1A1A1A/FFD700?text=Assembly" alt="Assembly">
+                    <div class="caption">Morning Assembly</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sabony School Complex. All rights reserved.</p>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#admissions">Admissions</a></li>
+                    <li><a href="index.html#programs">Programs</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
